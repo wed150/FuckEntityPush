@@ -20,7 +20,7 @@ lip install github.com/wed150/FuckEntityPush
 
 ### 手动安装
 
-1. 从[发布页面](https://github.com/LiteLDev/LeviOptimize/releases)下载最新版本
+1. 从[发布页面](https://github.com/wed150/FuckEntityPush/releases)下载最新版本
 2. 解压`FuckEntityPush-windows-x64.zip`文件
 3. 将`FuckEntityPush`文件夹复制到BDS安装目录下的`mods`文件夹中
 
