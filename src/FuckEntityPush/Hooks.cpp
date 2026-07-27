@@ -26,6 +26,7 @@ LL_STATIC_HOOK(
 }
 
 static phmap::flat_hash_map<Actor*, int> pushedEntityTimes;
+static phmap::flat_hash_map<Actor*, int> emptyMap;
 
 LL_STATIC_HOOK(
     PushableByEntityUtilityPushMaxPushOpt,
@@ -39,7 +40,7 @@ LL_STATIC_HOOK(
     const auto& config = Entry::getInstance().getConfig();
     if (config.maxPushTimes == 0) return;
 
-    if (config.maxPushTimes < 0 || (config.unlimitedPlayerPush && (owner.isPlayer() || other.isPlayer()))) {
+    if (config.unlimitedPlayerPush && (owner.isPlayer() || other.isPlayer())) {
         origin(owner, other, pushSelfOnly);
         return;
     }
@@ -52,7 +53,7 @@ LL_STATIC_HOOK(
 
 LL_TYPE_INSTANCE_HOOK(TickHook, ll::memory::HookPriority::Normal, Level, &Level::$tick, void) {
     origin();
-    pushedEntityTimes.clear();
+    pushedEntityTimes.swap(emptyMap);
 }
 
 
@@ -60,7 +61,7 @@ void initHooks() {
     const auto config = Entry::getInstance().getConfig();
     if (config.enable) {
         if (config.disableVec0Push) PushableByEntityUtilityPushVec0Opt::hook();
-        if (config.maxPushTimes != -1) {
+        if (config.maxPushTimes < 0) {
             PushableByEntityUtilityPushMaxPushOpt::hook();
             if (config.maxPushTimes != 0) TickHook::hook();
         }

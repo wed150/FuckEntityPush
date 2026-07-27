@@ -11,7 +11,7 @@ if not has_config("vs_runtime") then
     set_runtimes("MD")
 end
 
-target("my-mod") -- Change this to your mod name.
+target("FuckEntityPush") -- Change this to your mod name.
     add_rules("@levibuildscript/linkrule")
     add_rules("@levibuildscript/modpacker")
     if is_plat("windows") then
@@ -19,6 +19,7 @@ target("my-mod") -- Change this to your mod name.
         set_exceptions("none") -- To avoid conflicts with /EHa.
         add_cxflags( "/EHa", "/utf-8", "/W4", "/w44265", "/w44289", "/w44296", "/w45263", "/w44738", "/w45204")
         add_cxflags(
+            "/EHa",
             "-Wno-microsoft-cast",
             "-Wno-invalid-offsetof",
             "-Wno-c++2b-extensions",
