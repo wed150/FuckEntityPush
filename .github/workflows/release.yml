@@ -10,7 +10,6 @@ jobs:
       matrix:
         target_type:
           - server
-          - client
     steps:
       - uses: actions/checkout@v7
 
@@ -41,25 +40,9 @@ jobs:
           path: |
             bin/
 
-  update-release-notes:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-
-      - id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@v3
-
-      - uses: softprops/action-gh-release@v3
-        with:
-          body: |
-            ${{ steps.extract-release-notes.outputs.release_notes }}
-
   upload-to-release:
     needs:
       - build
-      - update-release-notes
     permissions:
       contents: write
     strategy:
