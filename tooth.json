@@ -1,11 +1,11 @@
 {
   "format_version": 3,
   "format_uuid": "289f771f-2c9a-4d73-9f3f-8492495a924d",
-  "tooth": "github.com/LiteLDev/levilamina-mod-template",
-  "version": "0.0.0",
+  "tooth": "github.com/wed150/FuckEntityPush",
+  "version": "0.1.0",
   "info": {
-    "name": "My Mod",
-    "description": "Description of my mod",
+    "name": "FuckEntityPush",
+    "description": "solve the problem of entity crowding",
     "tags": [
       "platform:levilamina",
       "type:mod"
@@ -23,13 +23,13 @@
         {
           "type": "zip",
           "urls": [
-            "https://{{tooth}}/releases/download/v{{version}}/levilamina-mod-template-server-windows-x64.zip"
+            "https://{{tooth}}/releases/download/v{{version}}/FuckEntityPush-windows-x64.zip"
           ],
           "placements": [
             {
               "type": "dir",
-              "src": "my-mod/",
-              "dest": "plugins/my-mod/"
+              "src": "FuckEntityPush/",
+              "dest": "plugins/FuckEntityPush/"
             }
           ]
         }

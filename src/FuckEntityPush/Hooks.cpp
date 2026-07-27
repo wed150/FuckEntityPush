@@ -61,7 +61,7 @@ void initHooks() {
     const auto config = Entry::getInstance().getConfig();
     if (config.enable) {
         if (config.disableVec0Push) PushableByEntityUtilityPushVec0Opt::hook();
-        if (config.maxPushTimes < 0) {
+        if (config.maxPushTimes >= 0) {
             PushableByEntityUtilityPushMaxPushOpt::hook();
             if (config.maxPushTimes != 0) TickHook::hook();
         }

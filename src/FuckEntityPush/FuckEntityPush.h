@@ -20,10 +20,10 @@ public:
     Config& getConfig();
 
     /// @return True if the mod is loaded successfully.
-    static bool load();
+    bool load();
 
     /// @return True if the mod is enabled successfully.
-    static bool enable();
+    bool enable();
 
     /// @return True if the mod is disabled successfully.
     static bool disable();
